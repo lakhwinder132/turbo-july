@@ -22,7 +22,7 @@ jobs:
         with:
           context: .
           file: ./docker/Dockerfile.frontend
-          build-args:
+          build-args: |
             - DATABASE_URL= ${{DOCKERHUB_DATABASE}}
           push: true
           tags: lakhwinder97187/turbo-july-frontend:${{ github.sha }}
