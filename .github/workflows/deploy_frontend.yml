@@ -21,7 +21,7 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           context: .
-          file: ./docker/Dockerfile.frontend
+          file: ./docker/Dockerfile.backend
           push: true
-          tags: lakhwinder132/turbo-july-frontend:${{ github.sha }}
+          tags: lakhwinder132/turbo-july-backend:${{ github.sha }}
           ## step to deploy on virtual machine
