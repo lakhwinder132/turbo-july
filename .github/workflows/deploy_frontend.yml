@@ -23,5 +23,5 @@ jobs:
           context: .
           file: ./docker/Dockerfile.backend
           push: true
-          tags: lakhwinder132/turbo-july-backend:${{ github.sha }}
+          tags: lakhwinder97187/turbo-july-backend:${{ github.sha }}
           ## step to deploy on virtual machine
