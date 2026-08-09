@@ -10,7 +10,7 @@
     "prisma-generate":"cd packages/db && npx prisma generate && cd ../..",
     "start:web":"cd apps/web && npm start",
     "build:web":"cd apps/web && npm run build && cd ../..",
-    "createdisp":"cd packages/db && npx tsc -b && cd ../..",
+    "createddisp":"cd packages/db && npx tsc -b && cd ../..",
     "start:http":"cd apps/http && node index.js ",
     "start:ws":"cd apps/ws && node index.js "
   },
