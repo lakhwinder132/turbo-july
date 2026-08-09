@@ -13,7 +13,6 @@ COPY apps/http ./apps/http
 
 RUN npm install
 RUN npm run prisma-generate
-RUN npm run createddisp
 
 EXPOSE 3001
 
