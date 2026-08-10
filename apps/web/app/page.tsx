@@ -1,3 +1,4 @@
+console.log("database=",process.env.DATBASE_URL);
 import prismaClient from "@repo/db/client";
 
 
