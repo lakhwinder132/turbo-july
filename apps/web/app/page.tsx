@@ -1,3 +1,6 @@
+import dotenv from "dotenv";
+dotenv.config({path:'./../../../.env'});
+
 console.log("database=",process.env.DATBASE_URL);
 import prismaClient from "@repo/db/client";
 
