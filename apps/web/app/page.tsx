@@ -1,5 +1,6 @@
 import prismaClient from "@repo/db/client";
 
+
 export default async function yes(){
   const data =await prismaClient.user.findMany();
   return (<div>

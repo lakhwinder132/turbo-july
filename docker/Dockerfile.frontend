@@ -4,8 +4,6 @@ WORKDIR /usr/src/http
 
 ARG DATABASE_URL
 
-ENV DATABASE_URL=$DATABASE_URL
-
 COPY package.json ./package.json
 COPY packages ./packages
 
@@ -17,7 +15,7 @@ RUN npm install
 
 RUN npm run prisma-generate
 RUN npm run createddisp
-# RUN npm run build:web
+RUN npm -e DATABASE_URL=$DATABASE_URL run run build:web
 
 EXPOSE 3000
 

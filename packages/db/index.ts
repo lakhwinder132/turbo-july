@@ -2,11 +2,11 @@ import dotenv from "dotenv";
 import path from "path";
 import { fileURLToPath } from "url";
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+// const __filename = fileURLToPath(import.meta.url);
+// const __dirname = path.dirname(__filename);
 
-// Adjust this to point at wherever your real .env actually lives
-dotenv.config({ path: path.resolve(__dirname, "../.env") });
+// // Adjust this to point at wherever your real .env actually lives
+// dotenv.config({ path: path.resolve(__dirname, "../.env") });
 
 import { PrismaClient } from "./generated/prisma/client.js";
 import { PrismaPg } from "@prisma/adapter-pg";
