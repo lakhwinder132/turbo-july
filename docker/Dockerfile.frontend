@@ -5,22 +5,22 @@ WORKDIR /usr/src/http
 ARG DATABASE_URL
 ENV DATABASE_URL=$DATABASE_URL
 
-COPY package.json ./package.json
-COPY packages ./packages
+# COPY package.json ./package.json
+# COPY packages ./packages
 
-COPY turbo.json ./turbo.json
+# COPY turbo.json ./turbo.json
 
-COPY apps/web ./apps/web
-RUN npm install -g npm@11.18.0
-RUN npm install 
+# COPY apps/web ./apps/web
+# RUN npm install -g npm@11.18.0
+# RUN npm install 
 
-RUN npm run prisma-generate
-RUN npm run createddisp
+# RUN npm run prisma-generate
+# RUN npm run createddisp
 
 RUN if [ -z "$DATABASE_URL" ]; then \
       echo "❌ DATABASE_URL is EMPTY"; \
     else \
-      echo "✅ DATABASE_URL is set, length: ${$DATABASE_URL}"; \
+      echo "✅ DATABASE_URL is set, length: $DATABASE_URL"; \
     fi
 
 RUN npm run build:web
