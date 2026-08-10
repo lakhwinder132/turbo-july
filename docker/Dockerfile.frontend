@@ -15,6 +15,13 @@ RUN npm install
 
 RUN npm run prisma-generate
 RUN npm run createddisp
+
+RUN if [ -z "$DATABASE_URL" ]; then \
+      echo "❌ DATABASE_URL is EMPTY"; \
+    else \
+      echo "✅ DATABASE_URL is set, length: ${#DATABASE_URL}"; \
+    fi
+
 RUN DATABASE_URL=$DATABASE_URL npm run build:web
 
 EXPOSE 3000
