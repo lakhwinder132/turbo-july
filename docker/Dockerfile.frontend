@@ -9,7 +9,7 @@ COPY packages ./packages
 
 COPY turbo.json ./turbo.json
 
-COPY ./apps/web ./apps/web
+COPY apps/web ./apps/web
 RUN npm install -g npm@11.18.0
 RUN npm install 
 
