@@ -1,7 +1,5 @@
-import dotenv from "dotenv";
-dotenv.config({path:'./../../../.env'});
+export const dynamic = 'force-dynamic';
 
-console.log("database=",process.env.DATBASE_URL);
 import prismaClient from "@repo/db/client";
 
 
@@ -14,4 +12,3 @@ export default async function yes(){
   </div>);
 }
 
-// export const revalidate=60;
