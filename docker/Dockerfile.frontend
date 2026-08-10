@@ -15,7 +15,7 @@ RUN npm install
 
 RUN npm run prisma-generate
 RUN npm run createddisp
-RUN npm -e DATABASE_URL=$DATABASE_URL run run build:web
+RUN npm -e DATABASE_URL=$DATABASE_URL run build:web
 
 EXPOSE 3000
 
