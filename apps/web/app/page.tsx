@@ -11,4 +11,4 @@ export default async function yes(){
   </div>);
 }
 
-export const revalidate=60;
+// export const revalidate=60;
