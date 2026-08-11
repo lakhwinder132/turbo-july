@@ -31,8 +31,8 @@ jobs:
         run: |
           echo "${{secrets.SSH_PRIVATE_KEY}}" &> ~/ssh_key
           chmod 600 ~/ssh_key
-          
+
           eval "$(ssh-agent -s)"
-          ssh-add ~/ssh-key <<< "${{ secrets.SSH_PHASPHRASE }}"
+          ssh-add ~/ssh_key <<< "${{ secrets.SSH_PHASPHRASE }}"
 
           ssh -o StrictHostKeyChecking=no -i ~/ssh_key azureuser@172.197.240.14 -t "docker stop frontend && docker run --name Frontend -d -p 3000:3000 lakhwinder97187/turbo-july-frontend:${{github.sha}}"
