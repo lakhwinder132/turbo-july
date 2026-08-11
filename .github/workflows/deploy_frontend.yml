@@ -30,7 +30,8 @@ jobs:
       - name: Deploy to the VM
         run: |
           echo "${{secrets.SSH_PRIVATE_KEY}}" &> ~/ssh_key
-          chmod 700 /.ssh
+          chmod 600 ~/ssh_key
+          
           eval "$(ssh-agent -s)"
           ssh-add ~/ssh-key <<< "${{ secrets.SSH_PHASPHRASE }}"
 
