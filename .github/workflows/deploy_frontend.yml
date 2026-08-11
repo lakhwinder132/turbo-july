@@ -29,7 +29,7 @@ jobs:
           ## step to deploy on virtual machine
       - name: Deploy to the VM
         run: |
-          echo "${{secrets.SSH_PRIVATE_KEY}}" &> ~/ssh_key
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/ssh_key
           chmod 600 ~/ssh_key
 
           eval "$(ssh-agent -s)"
