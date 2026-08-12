@@ -1,27 +1,27 @@
-name: Deploy the backend
+# name: Deploy the backend
 
-on:
-  push:
-    branches: [main]
+# on:
+#   push:
+#     branches: [main]
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout the code
-        uses: actions/checkout@v2
+# jobs:
+#   build:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Checkout the code
+#         uses: actions/checkout@v2
 
-      - name: Docker login
-        uses: docker/login-action@v2
-        with:
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
+#       - name: Docker login
+#         uses: docker/login-action@v2
+#         with:
+#           username: ${{ secrets.DOCKERHUB_USERNAME }}
+#           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-      - name: build and push
-        uses: docker/build-push-action@v4
-        with:
-          context: .
-          file: ./docker/Dockerfile.backend
-          push: true
-          tags: lakhwinder97187/turbo-july-backend:${{ github.sha }}
-          ## step to deploy on virtual machine
+#       - name: build and push
+#         uses: docker/build-push-action@v4
+#         with:
+#           context: .
+#           file: ./docker/Dockerfile.backend
+#           push: true
+#           tags: lakhwinder97187/turbo-july-backend:${{ github.sha }}
+#           ## step to deploy on virtual machine

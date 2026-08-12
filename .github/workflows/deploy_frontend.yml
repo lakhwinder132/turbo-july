@@ -30,7 +30,9 @@ jobs:
       - name: Deploy to the VM
         run: |
           set -e
-          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/ssh_key
+          trap 'rm -f ~/askpass.sh ~/ssh_key' EXIT
+
+          printf '%s\n' "${{ secrets.SSH_PRIVATE_KEY }}" > ~/ssh_key
           chmod 600 ~/ssh_key
 
           printf '#!/bin/sh\necho "%s"\n' "${{ secrets.SSH_PASSPHRASE }}" > ~/askpass.sh
@@ -41,10 +43,9 @@ jobs:
           export SSH_ASKPASS_REQUIRE=force
           setsid ssh-add ~/ssh_key < /dev/null
 
-          ssh -o StrictHostKeyChecking=no -i ~/ssh_key azureuser@172.197.240.14 "
-            docker stop frontend || true
-            docker rm frontend || true
-            docker run --name frontend -d -p 3000:3000 lakhwinder97187/turbo-july-frontend:${{ github.sha }}
-          "
-
-          rm -f ~/askpass.sh ~/ssh_key
+          ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null \
+            azureuser@172.197.240.14 "
+              docker stop frontend || true
+              docker rm frontend || true
+              docker run --name frontend -d -p 3000:3000 lakhwinder97187/turbo-july-frontend:${{ github.sha }}
+            "
