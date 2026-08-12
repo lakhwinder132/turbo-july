@@ -35,7 +35,7 @@ jobs:
           printf '%s\n' "${{ secrets.SSH_PRIVATE_KEY }}" > ~/ssh_key
           chmod 600 ~/ssh_key
 
-          printf '#!/bin/sh\necho "%s"\n' "${{ secrets.SSH_PASSPHRASE }}" > ~/askpass.sh
+          printf '#!/bin/sh\necho "%s"\n' "${{ secrets.SSH_PHASPHRASE }}" > ~/askpass.sh
           chmod 700 ~/askpass.sh
 
           eval "$(ssh-agent -s)"
