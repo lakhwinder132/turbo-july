@@ -13,6 +13,8 @@ COPY turbo.json ./turbo.json
 COPY apps/ws ./apps/ws
 
 RUN npm install -g npm@11.18.0
+RUN npm install
+
 RUN npm run prisma-generate
 RUN npm run createddisp
 
