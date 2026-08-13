@@ -43,7 +43,7 @@ jobs:
           setsid ssh-add ~/ssh_key < /dev/null
           
           ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev\null \
-            azureuser@172.197.240.14
-            "docker stop backend || true
-             docker rm backend || true
+            azureuser@172.197.240.14 \
+            "docker stop backend || true; \
+             docker rm backend || true; \
              docker run --name backend -d -p 3001:3001 lakhwinder97187/turbo-july-backend:${{github.sha}}"
