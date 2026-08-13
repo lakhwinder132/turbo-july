@@ -37,12 +37,12 @@ jobs:
           printf '#!/bin/sh\necho "%s"\n' "${{secrets.SSH_PHASPHRASE}}" > ~/askpass.sh
           chmod 700 ~/askpass.sh
 
-          eval "(ssh-agent -s)"
+          eval "$(ssh-agent -s)"
           export SSH_ASKPASS=~/askpass.sh
           export SSH_ASKPASS_REQUIRE=force
           setsid ssh-add ~/ssh_key < /dev/null
           
-          ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev\null/
+          ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev\null \
             azureuser@172.197.240.14
             "docker stop backend || true
              docker rm backend || true
